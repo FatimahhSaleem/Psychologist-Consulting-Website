@@ -28,7 +28,7 @@ const loginPsychologist = async (req, res) => {
     };
     const authToken = jwt.sign(data, process.env.JWT_SECRET); //returns a promise
 
-    return res.staus(200).json({ authToken });
+    return res.status(200).json({ authToken });
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
@@ -109,7 +109,7 @@ const createPsychologist = async (req, res) => {
       age: req.body.age,
       dob: req.body.dob,
       education: req.body.education,
-      expertise: req.body.dexpertiseob,
+      expertise: req.body.expertise,
       experiance: req.body.experiance,
     });
 
