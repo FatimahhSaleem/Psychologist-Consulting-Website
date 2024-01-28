@@ -55,8 +55,8 @@ const getAllPatients = async (req, res) => {
 // Get Patient By Id:
 const getPatientById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const patient = await Patient.findById(id);
+    const { patientId } = req.params;
+    const patient = await Patient.findById(patientId);
 
     if (patient) {
       return res.status(200).send(patient);
@@ -77,12 +77,12 @@ const createPatient = async (req, res) => {
       $or: [{ email: req.body.email }, { phoneNo: parseInt(req.body.phoneNo) }],
     });
     if (patient) {
-      if (user.email === req.body.email) {
+      if (patient.email === req.body.email) {
         return res
           .status(400)
           .json({ message: "Sorry a patient with this email already exists." });
       }
-      if (user.phoneNo === parseInt(req.body.phoneNo)) {
+      if (patient.phoneNo === parseInt(req.body.phoneNo)) {
         return res.status(400).json({
           message: "Sorry a patient with this phone number already exists.",
         });
@@ -117,12 +117,12 @@ const createPatient = async (req, res) => {
 // Update a Patient:
 const updatePatient = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { patientId } = req.params;
     if (req.body.email || req.body.phoneNo) {
       const patient = await Patient.findOne({
         $or: [{ email: req.body.email }, { phoneNo: req.body.phoneNo }],
       });
-      if (patient && patient.id !== id) {
+      if (patient && patient.id !== patientId) {
         if (patient.email === req.body.email) {
           return res.status(400).json({
             message: "Sorry a patient with this email already exists.",
@@ -136,7 +136,7 @@ const updatePatient = async (req, res) => {
       }
     }
 
-    const patient = await Patient.findByIdAndUpdate(id, req.body);
+    const patient = await Patient.findByIdAndUpdate(patientId, req.body);
 
     if (patient) {
       return res.status(200).json({
@@ -157,9 +157,9 @@ const updatePatient = async (req, res) => {
 // Delete a Patient:
 const deletePatient = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { patientId } = req.params;
 
-    const patient = await Patient.findByIdAndDelete(id);
+    const patient = await Patient.findByIdAndDelete(patientId);
 
     if (patient) {
       return res.status(200).json({
