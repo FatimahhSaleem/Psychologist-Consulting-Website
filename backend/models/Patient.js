@@ -17,6 +17,7 @@ const PatientSchema = new Schema({
   gender: { type: String },
   age: { type: Number },
   address: { type: String },
+  dob: { type: Date },
 });
 const Patient = mongoose.model("patient", PatientSchema);
 // for creating index in mongodb so that email should be unique:

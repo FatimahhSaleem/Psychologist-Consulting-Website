@@ -17,8 +17,9 @@ app.get("/", (req, res) => {
   res.send("Welcome to Psychologist-Consulting-Website backend!");
 });
 
-// app.use("/auth", require("./routes/auth"));
-// app.use("/notes", require("./routes/notes"));
+app.use("/patient", require("./routes/patient"));
+// app.use("/psychologist", require("./routes/psychologist"));
+// app.use("/appointment", require("./routes/appointment"));
 
 app.listen(port, () => {
   console.log(

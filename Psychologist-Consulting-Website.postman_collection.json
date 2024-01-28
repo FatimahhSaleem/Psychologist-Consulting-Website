@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "488faf2e-1631-4255-bd95-b9fabd15b7ff",
+		"name": "Psychologist-Consulting-Website",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30786042"
+	},
+	"item": [
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Get All Patients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/api/task/get"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/patient/get/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"assignTo\": \"\",\n    \"details\": \"Create the dump of database\",\n    \"title\": \"dump7\",\n    \"type\": \"database\",\n    \"status\": \"pending\",\n    \"createdBy\": \"clement\",\n    \"createdAt\": \"2023-01-24\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/task/createTask"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\":\"learn\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/task/updateTask/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8000/api/task/deleteTask/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Server Running",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000"
+			},
+			"response": []
+		}
+	]
+}
