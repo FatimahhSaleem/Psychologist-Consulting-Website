@@ -18,6 +18,10 @@ const AppointmentSchema = new Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("appointment", AppointmentSchema);
