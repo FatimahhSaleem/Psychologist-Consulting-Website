@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/patient", require("./routes/patient"));
 app.use("/psychologist", require("./routes/psychologist"));
-// app.use("/appointment", require("./routes/appointment"));
+app.use("/appointment", require("./routes/appointment"));
 
 app.listen(port, () => {
   console.log(

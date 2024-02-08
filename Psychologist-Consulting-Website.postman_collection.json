@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "488faf2e-1631-4255-bd95-b9fabd15b7ff",
+		"_postman_id": "929a37f9-f0ec-45c2-a3fb-e05134fb6595",
 		"name": "Psychologist-Consulting-Website",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "30786042"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32607678",
+		"_collection_link": "https://lively-comet-898074.postman.co/workspace/8e239e7d-b5ec-418b-96a5-25160d28b024/collection/32607678-929a37f9-f0ec-45c2-a3fb-e05134fb6595?action=share&source=collection_link&creator=32607678"
 	},
 	"item": [
 		{
@@ -14,61 +15,469 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/api/task/get"
+						"url": {
+							"raw": "http://localhost:5000/patient/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"patient",
+								"get"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Get Patient By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:5000/patient/get/1"
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/patient/get/65b6b21a713b41c8f9f2c40b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"patient",
+								"get",
+								"65b6b21a713b41c8f9f2c40b"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Create Task",
+					"name": "Create Patient",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"assignTo\": \"\",\n    \"details\": \"Create the dump of database\",\n    \"title\": \"dump7\",\n    \"type\": \"database\",\n    \"status\": \"pending\",\n    \"createdBy\": \"clement\",\n    \"createdAt\": \"2023-01-24\"\n  }",
+							"raw": "{\n      \"name\": \"fatima\",\n      \"password\": \"12345\",\n      \"email\": \"fatima@gmail.com\",\n      \"phoneNo\": \"0323882984\",\n      \"address\": \"gulberg lahore\",\n      \"gender\": \"male\",\n      \"age\": \"23\",\n      \"dob\": \"2000-05-23\"\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/task/createTask"
+						"url": {
+							"raw": "http://localhost:5000/patient/createPatient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"patient",
+								"createPatient"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Update Task",
+					"name": "Update Patient",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"subject\":\"learn\"\n}",
+							"raw": "{\n    \"gender\":\"female\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/task/updateTask/1"
+						"url": {
+							"raw": "http://localhost:5000/patient/updatePatient/65b6b21a713b41c8f9f2c40b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"patient",
+								"updatePatient",
+								"65b6b21a713b41c8f9f2c40b"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete Task",
+					"name": "Delete Patient",
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8000/api/task/deleteTask/1"
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/patient//deletePatient/65b6b21a713b41c8f9f2c40b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"patient",
+								"",
+								"deletePatient",
+								"65b6b21a713b41c8f9f2c40b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"fatima@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/patient/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"patient",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Psychologist",
+			"item": [
+				{
+					"name": "Get All Psychologist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/psychologist/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"psychologist",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Psychologist By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/psychologist/get/65b6bcb397574dd750f3163a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"psychologist",
+								"get",
+								"65b6bcb397574dd750f3163a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Psychologist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Hania\",\n    \"password\": \"112233\",\n    \"email\": \"hania@gmail.com\",\n    \"phoneNo\": \"073278472\",\n    \"address\": \"ittehad colony\",\n    \"gender\": \"female\",\n    \"age\": \"34\",\n    \"dob\": \"1854-2-7\",\n    \"education\": \"msc\",\n    \"expertise\": \"hsja\",\n    \"experiance\": \"1 year\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/psychologist/createPsychologist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"psychologist",
+								"createPsychologist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Psychologist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/psychologist/updatePsychologist/65b6bcb397574dd750f3163a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"psychologist",
+								"updatePsychologist",
+								"65b6bcb397574dd750f3163a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Psychologist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/psychologist/deletePsychologist/65b6bcb397574dd750f3163a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"psychologist",
+								"deletePsychologist",
+								"65b6bcb397574dd750f3163a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Psychologist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hania@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/psychologist/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"psychologist",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "Get All Appointment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/appointment/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"appointment",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Appointment By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/appointment/get/:appointmentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"appointment",
+								"get",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Hania\",\n    \"password\": \"112233\",\n    \"email\": \"hania@gmail.com\",\n    \"phoneNo\": \"073278472\",\n    \"address\": \"ittehad colony\",\n    \"gender\": \"female\",\n    \"age\": \"34\",\n    \"dob\": \"1854-2-7\",\n    \"education\": \"msc\",\n    \"expertise\": \"hsja\",\n    \"experiance\": \"1 year\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/appointment/createAppointment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"appointment",
+								"createAppointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Appointment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/appointment/updateAppointment/:appointmentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"appointment",
+								"updateAppointment",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Appointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/appointment/deleteAppointment/:appointmentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"appointment",
+								"deleteAppointment",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -79,7 +488,14 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:5000"
+				"url": {
+					"raw": "http://localhost:5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				}
 			},
 			"response": []
 		}
