@@ -59,7 +59,7 @@ const createAppointment = async (req, res) => {
 
     const appointment = await Appointment.create({
       patientId: req.body.patientId,
-      date: date,
+      date: req.body.date,
       startTime: req.body.startTime,
       endTime: req.body.endTime,
       status: req.body.status,
