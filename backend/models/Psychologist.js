@@ -21,6 +21,7 @@ const PsychologistSchema = new Schema({
   education: { type: String, required: true },
   expertise: { type: String, required: true },
   experiance: { type: String, required: true },
+  fee: { type: Number, required: true },
 });
 const Psychologist = mongoose.model("psychologist", PsychologistSchema);
 // for creating index in mongodb so that email should be unique:

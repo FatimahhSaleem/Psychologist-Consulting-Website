@@ -25,6 +25,7 @@ const loginPsychologist = async (req, res) => {
       id: psychologist.id,
       name: psychologist.name,
       email: psychologist.email,
+      role: "psychologist",
     };
     const authToken = jwt.sign(data, process.env.JWT_SECRET); //returns a promise
 

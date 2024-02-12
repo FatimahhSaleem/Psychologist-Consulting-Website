@@ -25,6 +25,7 @@ function Contact() {
                     <a
                       href="https://www.instagram.com/VirtualTherapy"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <i
                         className="bi bi-instagram text-warning mx-1"
@@ -34,6 +35,7 @@ function Contact() {
                     <a
                       href="https://www.facebook.com/VirtualTherapy"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <i
                         className="bi bi-facebook text-warning mx-1"
@@ -43,6 +45,7 @@ function Contact() {
                     <a
                       href="https://twitter.com/VirtualTherapy"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <i
                         className="bi bi-twitter text-warning mx-1"
@@ -52,6 +55,7 @@ function Contact() {
                     <a
                       href="https://www.linkedin.com/company/VirtualTherapy"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <i
                         className="bi bi-linkedin text-warning mx-1"

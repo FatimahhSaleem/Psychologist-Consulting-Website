@@ -22,6 +22,7 @@ const loginPatient = async (req, res) => {
       id: patient.id,
       name: patient.name,
       email: patient.email,
+      role: "patient",
     };
     const authToken = jwt.sign(data, process.env.JWT_SECRET); //returns a promise
 
@@ -122,6 +123,7 @@ const updatePatient = async (req, res) => {
       const patient = await Patient.findOne({
         $or: [{ email: req.body.email }, { phoneNo: req.body.phoneNo }],
       });
+
       if (patient && patient.id !== patientId) {
         if (patient.email === req.body.email) {
           return res.status(400).json({
