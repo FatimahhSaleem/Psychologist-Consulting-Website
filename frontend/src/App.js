@@ -19,6 +19,7 @@ import PatientProfile from "./components/Patients/PatientProfile";
 import PsychologistLogin from "./components/Psychologist/PsychologistLogin";
 import PsychologistHome from "./components/Psychologist/PsychologistHome";
 import PsychologistProfile from "./components/Psychologist/PsychologistProfile";
+import PatientAppointments from "./components/Patients/PatientAppointments";
 
 function App() {
   const [user, setUser] = useState("");
@@ -70,6 +71,11 @@ function App() {
             <Route exact path="/contact" element={<Contact />}></Route>
             <Route exact path="/home" element={<PatientHome />}></Route>
             <Route exact path="/profile" element={<PatientProfile />}></Route>
+            <Route
+              exact
+              path="/my-appointments"
+              element={<PatientAppointments />}
+            ></Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         )}

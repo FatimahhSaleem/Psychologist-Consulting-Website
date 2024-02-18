@@ -30,7 +30,7 @@ const loginPatient = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
-      error: "Internal Server Error: Could not login User.",
+      error: error,
     });
   }
 };
@@ -48,7 +48,7 @@ const getAllPatients = async (req, res) => {
     console.error(error.message);
 
     res.status(500).send({
-      error: "Internal Server Error: Could not retrieve Patients.",
+      error: error,
     });
   }
 };
@@ -66,7 +66,7 @@ const getPatientById = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
-      error: "Internal Server Error: Could not get the Patient by Id.",
+      error: error,
     });
   }
 };
@@ -110,7 +110,7 @@ const createPatient = async (req, res) => {
     console.error(error.message);
 
     res.status(500).send({
-      error: "Internal Server Error: Could not create Patient.",
+      error: error,
     });
   }
 };
@@ -151,7 +151,7 @@ const updatePatient = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      error: "Internal Server Error: Could not update the patient by Id.",
+      error: error,
     });
   }
 };
@@ -175,7 +175,7 @@ const deletePatient = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      error: "Internal Server Error: Could not delete the patient.",
+      error: error,
     });
   }
 };

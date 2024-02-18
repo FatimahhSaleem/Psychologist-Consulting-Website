@@ -23,7 +23,7 @@ function NavBar({ refresh, load }) {
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
-        <div className="container">
+        <div className="container p-0">
           <Link className="navbar-brand fs-1" to="/">
             <img src={logo} alt="logo" width="55" height="45" />
             <span className="text-warning">Virtual</span>Therapy
@@ -106,9 +106,18 @@ function NavBar({ refresh, load }) {
                 </li>
                 <li className="nav-item">
                   <Link
+                    to="/my-appointments"
+                    className="btn btn-outline-warning
+                    text-white ms-2"
+                  >
+                    My Appointments
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
                     to="/profile"
                     className="btn btn-outline-warning
-                    text-white mx-2"
+                    text-white ms-2"
                   >
                     Profile
                   </Link>
@@ -150,7 +159,7 @@ function NavBar({ refresh, load }) {
                   <Link
                     to="/profile"
                     className="btn btn-outline-warning
-                    text-white mx-2"
+                    text-white ms-2"
                   >
                     Profile
                   </Link>

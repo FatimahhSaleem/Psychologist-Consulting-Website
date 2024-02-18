@@ -33,7 +33,7 @@ const loginPsychologist = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
-      error: "Internal Server Error: Could not login Psychologist.",
+      error: error,
     });
   }
 };
@@ -51,7 +51,7 @@ const getAllPsychologists = async (req, res) => {
     console.error(error.message);
 
     res.status(500).send({
-      error: "Internal Server Error: Could not retrieve Psychologists.",
+      error: error,
     });
   }
 };
@@ -71,7 +71,7 @@ const getPsychologistById = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
-      error: "Internal Server Error: Could not get the Psychologist by Id.",
+      error: error,
     });
   }
 };
@@ -112,6 +112,8 @@ const createPsychologist = async (req, res) => {
       education: req.body.education,
       expertise: req.body.expertise,
       experiance: req.body.experiance,
+      fee: req.body.fee,
+      timing: req.body.timing,
     });
 
     return res
@@ -121,7 +123,7 @@ const createPsychologist = async (req, res) => {
     console.error(error.message);
 
     res.status(500).send({
-      error: "Internal Server Error: Could not create Psychologist.",
+      error: error,
     });
   }
 };
@@ -165,7 +167,7 @@ const updatePsychologist = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      error: "Internal Server Error: Could not update the Psychologist by Id.",
+      error: error,
     });
   }
 };
@@ -189,7 +191,7 @@ const deletePsychologist = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      error: "Internal Server Error: Could not delete the psychologist.",
+      error: error,
     });
   }
 };

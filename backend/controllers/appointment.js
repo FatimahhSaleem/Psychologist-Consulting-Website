@@ -1,5 +1,29 @@
 const Appointment = require("../models/Appointment");
 
+// Check Availability for a booking slot.
+const checkAvailability = async (req, res) => {
+  try {
+    console.log("request:", req.body);
+    const appointment = await Appointment.findOne({
+      $and: [
+        { date: req.body.date },
+        { startTime: req.body.startTime },
+        { endTime: req.body.endTime },
+      ],
+    });
+    if (appointment) {
+      res.status(200).json({ available: false });
+    } else {
+      res.status(200).json({ available: true });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send({
+      error: error,
+    });
+  }
+};
+
 //Get All Appointments:
 const getAllAppointments = async (req, res) => {
   try {
@@ -12,7 +36,7 @@ const getAllAppointments = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
-      error: "Internal Server Error: Could not retrieve Appointment.",
+      error: error,
     });
   }
 };
@@ -32,7 +56,7 @@ const getAppointmentById = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send({
-      error: "Internal Server Error: Could not get the Appointment by Id.",
+      error: error,
     });
   }
 };
@@ -62,7 +86,7 @@ const createAppointment = async (req, res) => {
       date: req.body.date,
       startTime: req.body.startTime,
       endTime: req.body.endTime,
-      status: req.body.status,
+      // status: req.body.status,
     });
     if (appointment) {
       return res
@@ -74,8 +98,8 @@ const createAppointment = async (req, res) => {
     });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send({
-      error: "Internal Server Error: Could not create new Appointment.",
+    res.status(400).send({
+      error: error,
     });
   }
 };
@@ -119,7 +143,7 @@ const updateAppointment = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      error: "Internal Server Error: Could not update the Appointment by Id.",
+      error: error,
     });
   }
 };
@@ -143,7 +167,7 @@ const deleteAppointment = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      error: "Internal Server Error: Could not delete the Appointment.",
+      error: error,
     });
   }
 };
@@ -154,4 +178,5 @@ module.exports = {
   createAppointment,
   updateAppointment,
   deleteAppointment,
+  checkAvailability,
 };
