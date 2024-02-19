@@ -41,6 +41,25 @@ const getAllAppointments = async (req, res) => {
   }
 };
 
+// Get Appointment By Patient Id :
+const getAppointmentByPatientId = async (req, res) => {
+  try {
+    const { patientId } = req.params;
+    const appointments = await Appointment.find({ patientId });
+
+    if (appointments.length) {
+      return res.status(200).send(appointments);
+    }
+    return res
+      .status(404)
+      .send("There isn't any Appointment of this patient yet.");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send({
+      error: error,
+    });
+  }
+};
 // Get Appointment By Id:
 const getAppointmentById = async (req, res) => {
   try {
@@ -175,6 +194,7 @@ const deleteAppointment = async (req, res) => {
 module.exports = {
   getAllAppointments,
   getAppointmentById,
+  getAppointmentByPatientId,
   createAppointment,
   updateAppointment,
   deleteAppointment,
