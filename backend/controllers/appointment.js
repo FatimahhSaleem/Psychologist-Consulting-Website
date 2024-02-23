@@ -28,7 +28,7 @@ const checkAvailability = async (req, res) => {
 //Get All Appointments:
 const getAllAppointments = async (req, res) => {
   try {
-    const appointments = await Appointment.find();
+    const appointments = await Appointment.find().sort({ date: -1 });
     if (appointments.length) {
       res.status(200).json(appointments);
     } else {
@@ -46,7 +46,9 @@ const getAllAppointments = async (req, res) => {
 const getAppointmentByPatientId = async (req, res) => {
   try {
     const { patientId } = req.params;
-    const appointments = await Appointment.find({ patientId });
+    const appointments = await Appointment.find({ patientId }).sort({
+      date: -1,
+    });
 
     if (appointments.length) {
       return res.status(200).send(appointments);
@@ -113,25 +115,6 @@ const createAppointment = async (req, res) => {
 const updateAppointment = async (req, res) => {
   try {
     const { appointmentId } = req.params;
-    // if (req.body.email || req.body.phoneNo) {
-    //   const appointment = await Appointment.findOne({
-    //     $or: [{ email: req.body.email }, { phoneNo: req.body.phoneNo }],
-    //   });
-    //   if (appointment && appointment.id !== appointmentId) {
-    //     if (appointment.email === req.body.email) {
-    //       return res.status(400).json({
-    //         message: "Sorry a psychologist with this email already exists.",
-    //       });
-    //     }
-    //     if (appointment.phoneNo === req.body.phoneNo) {
-    //       return res.status(400).json({
-    //         message:
-    //           "Sorry a psychologist with this phone number already exists.",
-    //       });
-    //     }
-    //   }
-    // }
-
     const appointment = await Appointment.findByIdAndUpdate(
       appointmentId,
       req.body
