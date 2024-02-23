@@ -27,66 +27,45 @@ const PatientProfile = () => {
         <div className="container w-75 justify-content-center shadow-lg p-5 bg-light rounded">
           <h1 className="text-warning text-center">Patient Profile</h1>
 
-          <div class="p-5 m-5 bg-warning-subtle bg-opacity-10 mt-5 border border-warning rounded">
-            <div class="row">
-              <div className="col-4">
-                <h5>
-                  <b>Name :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.name}</h5>
-              </div>
-              <div className="col-4">
-                <h5>
-                  <b>Age :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.age}</h5>
-              </div>
-              <div className="col-4">
-                <h5>
-                  <b>Gender :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.gender}</h5>
-              </div>
-              <div className="col-4">
-                <h5>
-                  <b>Address :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.address}</h5>
-              </div>
-              <div className="col-4">
-                <h5>
-                  <b>Email :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.email}</h5>
-              </div>
-              <div className="col-4">
-                <h5>
-                  <b>Phone No :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.phoneNo}</h5>
-              </div>
-              <div className="col-4">
-                <h5>
-                  <b>Date Of Birth :</b>
-                </h5>
-              </div>
-              <div className="col-8">
-                <h5>{patient?.dob.split("T")[0]}</h5>
-              </div>
-            </div>
-          </div>
+
+
+          <table className="table border  table-bordered border-warning border-3 rounded table-striped ">
+                
+                <tbody>
+                 
+                  <tr>
+                    <th scope="row">Name:</th>
+                    <td>{patient?.name}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Age:</th>
+                    <td>{patient?.age}</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Gender:</th>
+                    <td>{patient?.gender}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Email:</th>
+                    <td>{patient?.email}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Date Of Birth:</th>
+                    <td>{patient?.dob.split("T")[0]}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Phone no:</th>
+                    <td>{patient?.phoneNo}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="flex-wrap">Address:</th>
+                    <td>{patient?.address}</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+          
         </div>
       </div>
     </div>
