@@ -116,7 +116,7 @@ const PsychologistProfile = () => {
             />
           </div>
           <form className="px-5 py-3 mx-3" onSubmit={handleSubmit}>
-            <div className="mb-4 ">
+            <div className="mb-4 flex-row" direction="horizontal">
               <label htmlFor="name" className="form-label fw-bold">
                 Name :
               </label>

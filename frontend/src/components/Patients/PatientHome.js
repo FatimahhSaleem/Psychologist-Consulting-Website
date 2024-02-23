@@ -139,7 +139,7 @@ const PatientHome = () => {
                 <h3 className="mt-2">Psychologist Profile</h3>
               </div>
 
-              <div className="card-body mx-2">
+              <div className="card-body mx-4">
                 <div className="row">
                   <div className="col-4">
                     <h5>
@@ -263,8 +263,8 @@ const PatientHome = () => {
                           onClick={(e) => {
                             setAppointmentTime("8 to 9 AM");
                             setAvailable(false);
-                            setStartTime("8:00");
-                            setEndTime("9:00");
+                            setStartTime("8:00 AM");
+                            setEndTime("9:00 AM");
                           }}
                         >
                           "8 to 9 AM"
@@ -273,8 +273,8 @@ const PatientHome = () => {
                           onClick={(e) => {
                             setAppointmentTime("10 to 11 AM");
                             setAvailable(false);
-                            setStartTime("10:00");
-                            setEndTime("11:00");
+                            setStartTime("10:00 AM");
+                            setEndTime("11:00 AM");
                           }}
                         >
                           "10 to 11 AM"
@@ -283,8 +283,8 @@ const PatientHome = () => {
                           onClick={(e) => {
                             setAppointmentTime("12 to 1 PM");
                             setAvailable(false);
-                            setStartTime("12:00");
-                            setEndTime("1:00");
+                            setStartTime("12:00 PM");
+                            setEndTime("1:00 PM");
                           }}
                         >
                           "12 to 1 PM"
@@ -293,8 +293,8 @@ const PatientHome = () => {
                           onClick={(e) => {
                             setAppointmentTime("2 to 3 PM");
                             setAvailable(false);
-                            setStartTime("2:00");
-                            setEndTime("3:00");
+                            setStartTime("2:00 PM");
+                            setEndTime("3:00 PM");
                           }}
                         >
                           "2 to 3 PM"
@@ -304,8 +304,8 @@ const PatientHome = () => {
                           onClick={(e) => {
                             setAppointmentTime("4 to 5 PM");
                             setAvailable(false);
-                            setStartTime("4:00");
-                            setEndTime("5:00");
+                            setStartTime("4:00 PM");
+                            setEndTime("5:00 PM");
                           }}
                         >
                           "4 to 5 PM"
@@ -392,7 +392,8 @@ const PatientHome = () => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-danger fs-3">
-              Are you sure? This booking apointment cannot be cancelled.
+              Are you sure? <br />
+              This booking apointment cannot be cancelled.
             </div>
             <Button
               variant="outline-warning shadow-lg fs-5 fw-bold px-3 my-4 mx-2"

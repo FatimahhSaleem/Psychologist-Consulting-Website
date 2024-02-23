@@ -1,62 +1,78 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PsychologistHome = () => {
-  return (
-    <>
-      <div className="container mt-5">
-        <div className="shadow p-3 mb-5 bg-body-tertiary rounded">
-          <h1 className="text-center text-warning mb-3">Appointements</h1>
+  const [appointments, setAppointments] = useState();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const getAppointments = async () => {
+      const requestOptions = {
+        method: "GET",
+        redirect: "follow",
+      };
 
-          <table className="table table-striped border table-hover">
+      const response = await fetch(
+        "http://localhost:5000/appointment/get",
+        requestOptions
+      );
+      const json = await response.json();
+      setAppointments(json);
+    };
+    getAppointments();
+  }, []);
+  return (
+    <div className="main">
+      <div className="container p-5">
+        <div className="shadow-lg p-5 bg-body-tertiary rounded">
+          <h1 className="text-center text-warning mb-5">Appointements</h1>
+
+          <table className="shadow-sm table table-striped border table-hover align-middle">
             <thead>
               <tr>
-                <th scope="col">#id</th>
-                <th scope="col">Date & Time</th>
-                <th scope="col">Status</th>
-                <th scope="col">Actions</th>
+                <th scope="col" className="text-center">
+                  #No
+                </th>
+                <th scope="col">PatientId</th>
+                <th scope="col">Date</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Patient Profile</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">
-                  <Link className="patient-profile" to="/patient-profile">
-                    6823674267384677326832absusd
-                  </Link>
-                </th>
-                <td>13-04-2024 09:00</td>
-                <td>Reject</td>
-                <td>
-                  <div className="d-flex gap-2 ">
-                    <button className="btn btn-outline-warning  " type="button">
-                      Approved
-                    </button>
-                    <button className="btn btn-outline-warning" type="button">
-                      Reject
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                  <div className="d-flex gap-2">
-                    <button className="btn btn-outline-warning  " type="button">
-                      Approved
-                    </button>
-                    <button className="btn btn-outline-warning" type="button">
-                      Reject
-                    </button>
-                  </div>
-                </td>
-              </tr>
+              {appointments?.map((appointment, index) => {
+                return (
+                  <tr key={index}>
+                    <th scope="row" className="text-center">
+                      {index + 1}
+                    </th>
+                    <td>{appointment.patientId}</td>
+                    <td>{appointment.date?.split("T")[0]}</td>
+                    <td>{appointment.startTime}</td>
+                    <td>{appointment.endTime}</td>
+                    <td>
+                      <div>
+                        <button
+                          className="btn btn-outline-warning shadow-sm"
+                          type="button"
+                          onClick={() => {
+                            navigate(
+                              `/psychologist/patientProfile/${appointment.patientId}`
+                            );
+                          }}
+                        >
+                          Patient Profile
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

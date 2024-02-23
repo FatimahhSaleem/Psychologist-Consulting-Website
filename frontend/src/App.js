@@ -14,12 +14,13 @@ import NotFound from "./components/NotFound";
 import Login from "./components/Patients/Login";
 import SignUp from "./components/Patients/SignUp";
 import PatientHome from "./components/Patients/PatientHome";
-import PatientProfile from "./components/Patients/PatientProfile";
+import Profile from "./components/Patients/PatientProfile";
+import PatientAppointments from "./components/Patients/PatientAppointments";
 
 import PsychologistLogin from "./components/Psychologist/PsychologistLogin";
 import PsychologistHome from "./components/Psychologist/PsychologistHome";
 import PsychologistProfile from "./components/Psychologist/PsychologistProfile";
-import PatientAppointments from "./components/Patients/PatientAppointments";
+import PatientProfile from "./components/Psychologist/PatientProfile";
 
 function App() {
   const [user, setUser] = useState("");
@@ -70,7 +71,7 @@ function App() {
             <Route exact path="/our-goals" element={<Goals />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>
             <Route exact path="/home" element={<PatientHome />}></Route>
-            <Route exact path="/profile" element={<PatientProfile />}></Route>
+            <Route exact path="/profile" element={<Profile />}></Route>
             <Route
               exact
               path="/my-appointments"
@@ -89,6 +90,11 @@ function App() {
               exact
               path="/psychologist/home"
               element={<PsychologistHome />}
+            ></Route>
+            <Route
+              exact
+              path="psychologist/patientProfile/:patientId"
+              element={<PatientProfile />}
             ></Route>
             <Route
               exact
