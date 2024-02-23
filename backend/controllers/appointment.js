@@ -1,4 +1,5 @@
 const Appointment = require("../models/Appointment");
+const Psychologist = require("../models/Psychologist");
 
 // Check Availability for a booking slot.
 const checkAvailability = async (req, res) => {
@@ -83,29 +84,14 @@ const getAppointmentById = async (req, res) => {
 // Create a new Appointment:
 const createAppointment = async (req, res) => {
   try {
-    // let appointment = await Appointment.findOne({
-    //   $or: [{ email: req.body.email }, { phoneNo: parseInt(req.body.phoneNo) }],
-    // });
-    // if (appointment) {
-    //   if (appointment.email === req.body.email) {
-    //     return res.status(400).json({
-    //       message: "Sorry an Appointment with this email already exists.",
-    //     });
-    //   }
-    //   if (appointment.phoneNo === parseInt(req.body.phoneNo)) {
-    //     return res.status(400).json({
-    //       message:
-    //         "Sorry an Appointment with this phone number already exists.",
-    //     });
-    //   }
-    // }
+    const psychologist = await Psychologist.find();
 
     const appointment = await Appointment.create({
       patientId: req.body.patientId,
       date: req.body.date,
       startTime: req.body.startTime,
       endTime: req.body.endTime,
-      // status: req.body.status,
+      fee: psychologist[0].fee,
     });
     if (appointment) {
       return res

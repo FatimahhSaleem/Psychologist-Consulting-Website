@@ -129,7 +129,7 @@ const PatientHome = () => {
   return (
     <div className="main">
       <div className="container p-5">
-        <div className="shadow p-5 bg-body-tertiary rounded">
+        <div className="shadow-lg p-5 bg-body-tertiary rounded">
           <h1 className="text-center text-warning fw-bold">
             Welcome to Virtual Therapy
           </h1>
